@@ -2,22 +2,25 @@
 
 
 <%= form_for(:session, url: login_path) do |f| %>
-    <table>
-        <tbody>
-            <tr>
-                <th><%= f.label :email %></th>
-                <td><%= f.email_field :email, class: 'form-control' %></td>
-            </tr>
-            <tr>
-                <th><%= f.label :password %></th>
-                <td><%= f.password_field :password, class: 'form-control' %></td>
-            </tr>
-            <tr>
-                <th></th>
-                <td><%= f.submit "Log in", class: "btn btn-primary" %></td>
-            </tr>
-        </tbody>
-    </table>
+  <table>
+    <tbody>
+      <tr>
+        <th><%= f.label :email %></th>
+        <td><%= f.email_field :email, class: 'form-control' %></td>
+      </tr>
+      <tr>
+        <th><%= f.label :password %></th>
+        <td><%= f.password_field :password, class: 'form-control' %></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <%= f.label :remember_me, class: "checkbox inline" do %>
+    <%= f.check_box :remember_me %>
+    <span>Remember me on this computer</span>
+  <% end %>
+  <br>
+  <%= f.submit "Log in", class: "btn btn-primary" %>
 <% end %>
 
 <p>New user? <%= link_to "Sign up now!", signup_path %></p>
