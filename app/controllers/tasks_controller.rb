@@ -1,7 +1,8 @@
 class TasksController < ApplicationController
     def index
-        @tasks = Task.all
+        @tasks = Task.where(user_id: current_user.id)
         @task = Task.new
+        @user = User.find(current_user.id)
     end 
 
     def create
@@ -28,6 +29,6 @@ class TasksController < ApplicationController
     
     private
         def task_params
-          params.require(:task).permit(:title)
+          params.require(:task).permit(:title,:user_id)
         end
 end

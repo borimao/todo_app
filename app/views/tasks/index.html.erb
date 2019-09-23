@@ -3,6 +3,7 @@
   <thead>
     <tr>
       <th>タスク名</th>
+      <p><%= @user.name %></p>
     </tr>
   </thead>
   <tbody>
@@ -16,6 +17,7 @@
   </tbody>
 </table>
 <%= form_for(@task) do |f| %>
+  <div><%= f.text_field :user_id , value: @user.id , type: "hidden"%></div>
   <div><%= f.text_field :title %></div>
   <div><%= f.submit %></div>
 <% end %>
