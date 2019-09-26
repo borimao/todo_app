@@ -2,7 +2,7 @@
 server '18.189.240.72', user: 'borimao', roles: %w{app db web} 
 
 #デプロイするサーバーにsshログインする鍵の情報を記述
-set :ssh_options, keys: '~/.ssh/todo_key_rsa' 
+set :ssh_options, keys: '~/.ssh/todoooo_key_rsa' 
 
 # server-based syntax
 # ======================
