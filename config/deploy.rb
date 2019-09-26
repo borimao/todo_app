@@ -39,7 +39,7 @@
 # set :ssh_options, verify_host_key: :secure
 
 # capistranoのバージョン固定
-lock '3.4.0'
+lock '3.11.1'
 
 # デプロイするアプリケーション名
 set :application, 'todo_app'
