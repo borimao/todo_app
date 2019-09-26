@@ -39,3 +39,15 @@
   after_fork do |server, worker|
     defined?(ActiveRecord::Base) and ActiveRecord::Base.establish_connection
   end
+  
+ server '18.189.240.72',
+   user: "borimao",
+   roles: %w{web db app},
+   ssh_options: {
+       port: 22,
+       user: "borimao", # overrides user setting above
+       keys: %w(~/.ssh/todo.pem),
+       forward_agent: true
+#     auth_methods: %w(publickey password)
+#     # password: "please use keys"
+   }
