@@ -44,7 +44,7 @@
    user: "borimao",
    roles: %w{web db app},
    ssh_options: {
-       port: 22,
+       port: 22022,
        user: "borimao", # overrides user setting above
        keys: %w(~/.ssh/todo.pem),
        forward_agent: true
