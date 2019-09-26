@@ -34,5 +34,16 @@ group :production do
   gem 'pg', '0.20.0'
 end
 
+group :development, :test do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+end
+
+group :production, :staging do
+  gem 'unicorn'
+end
+
 # Windows環境ではtzinfo-dataというgemを含める必要があります
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
