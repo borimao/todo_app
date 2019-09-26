@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       log_in user
       params[:session][:remember_me] == '1' ? remember(user) : forget(user) 
-      redirect_to user
+      redirect_to tasks_path
     else
       flash.now[:danger] = 'ログイン失敗・・・'
       render 'new'
@@ -17,6 +17,6 @@ class SessionsController < ApplicationController
 
   def destroy
     log_out if logged_in?
-    redirect_to tasks_path
+    redirect_to root_path
   end
 end
