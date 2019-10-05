@@ -51,10 +51,10 @@ set :repo_url, 'https://github.com/borimao/todo_app.git'
 set :branch, 'master'
 
 # deploy先のディレクトリ。 
-set :deploy_to, '/var/www/rails'
+set :deploy_to, '/var/www/rails/todo_app'
 
 # シンボリックリンクをはるファイル。(※後述)
-set :linked_files, fetch(:linked_files, []).push('config/settings.yml')
+set :linked_files, fetch(:linked_files, []).push('config/secrets.yml') #settings.ymlではなくsecrets.yml
 
 # シンボリックリンクをはるフォルダ。(※後述)
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system')
