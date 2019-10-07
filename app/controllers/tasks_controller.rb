@@ -12,10 +12,16 @@ class TasksController < ApplicationController
     
     def edit
         @task = Task.find(params[:id])
+        if @task.user_id != current_user.id
+            redirect_to tasks_path
+        end
     end
     
     def update
         @task = Task.find(params[:id])
+        if @task.user_id != current_user.id
+            redirect_to tasks_path
+        end
         @task.update(task_params)
         redirect_to tasks_path
     end
