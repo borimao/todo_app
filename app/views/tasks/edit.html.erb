@@ -1,7 +1,8 @@
-<h1>タスク編集</h1>
-<%= form_for(@task) do |f| %>
-  <div><%= f.label :title %></div>
-  <div><%= f.text_field :title %></div>
-  <div><%= f.submit %></div>
-<% end %>
-<%= link_to '戻る', tasks_path %>
+<div class="edit_pages">
+  <div class="edit_area">  
+    <%= form_for(@task) do |f| %>
+      <div><%= f.text_field :title, class: "title_text" %></div>
+      <div><%= f.submit :class=>"edit_btn" %></div>
+    <% end %>
+  </div>
+</div>

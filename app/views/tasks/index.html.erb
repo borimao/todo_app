@@ -1,23 +1,23 @@
-<h1>タスク一覧</h1>
-<table>
-  <thead>
-    <tr>
-      <th>タスク名</th>
-      <p><%= @user.name %></p>
-    </tr>
-  </thead>
-  <tbody>
-    <% @tasks.each do |task| %>
-      <tr>
-        <td><%= task.title %></td>
-        <td><%= link_to '編集', edit_task_path(task) %></td>
-        <td><%= link_to '削除', task_path(task), method: :delete %></td>
-      </tr>
+<div class="task_pages">
+  <div class="task_area">
+    <table>
+      <tbody>
+        <% @tasks.each do |task| %>
+          <tr>
+            <td class="title_td"><%= task.title %></td>
+            <td><%= link_to 'Edit', edit_task_path(task) %></td>
+            <td><%= link_to 'Delete', task_path(task), method: :delete %></td>
+          </tr>
+          <tr>
+            <td><hr><td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    <%= form_for(@task) do |f| %>
+      <div><%= f.text_field :user_id , value: @user.id , type: "hidden"%></div>
+      <div><%= f.text_field :title, class: "title_text" %></div>
+      <div><%= f.submit :class=>"create_btn" %></div>
     <% end %>
-  </tbody>
-</table>
-<%= form_for(@task) do |f| %>
-  <div><%= f.text_field :user_id , value: @user.id , type: "hidden"%></div>
-  <div><%= f.text_field :title %></div>
-  <div><%= f.submit %></div>
-<% end %>
+  </div>
+</div>
